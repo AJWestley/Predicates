@@ -66,3 +66,17 @@ del(2, [2, 1, 2, 3, 2]).
 % X = [2, 1, 3, 2];
 % X = [2, 1, 2, 3].
 ```
+
+#### Checking for an Item in a List
+
+Using `in` you can check if an item is contained inside a list
+
+`in` takes 2 arguments:
+- The item to look for
+- The list to look through
+
+##### Example: (`in`)
+```prolog
+in(4, [1, 4, 9, 25]).
+% true
+```
