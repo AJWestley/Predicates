@@ -37,6 +37,5 @@ range(X, Y, [X | SubResult]) :- Y > X, Z is X + 1, range(Z, Y, SubResult).
 
 % Splitting a list - split(Original, NumElements, Left, Right)
 split(List, 0, [], List):-!.
-split([Head | Tail], 1, [Head], Tail):-!.
 
 split([Head | Tail], Num, [Head | SubResult], End) :- SubNum is Num - 1, split(Tail, SubNum, SubResult, End).
