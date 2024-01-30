@@ -224,3 +224,18 @@ The `is_prime` predicate can determine whether or not a number is prime.
 ?- is_prime(17)
 % true.
 ```
+
+#### Finding the Greatest Common Divisor
+
+The GCD of 2 numbers can be found with the `gcd` predicate.
+
+`gcd` takes 3 arguments:
+- The first number
+- The second number
+- Output
+
+##### Example: (`gcd`)
+```prolog
+?- gcd(42, 285, X).
+% X = 3.
+```
