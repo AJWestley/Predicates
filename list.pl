@@ -1,5 +1,5 @@
 % Concatenating two lists - concat(L1, L2, Result)
-concat([], L1, L1):-!.
+concat([], L1, L1) :- !.
 
 concat([Item | L1], L2, [Item | L3]) :- concat(L1, L2, L3).
 
@@ -14,7 +14,7 @@ del(Item, [Item | Tail], Tail).
 del(Item, [Head | Tail], [Head | Result]) :- del(Item, Tail, Result).
 
 % Checking for item inside list - in(Item, List)
-in(Item, [Item | _]):-!.
+in(Item, [Item | _]) :- !.
 
 in(Item, [_ | Tail]) :- in(Item, Tail).
 
@@ -24,19 +24,19 @@ size([], 0).
 size([_ | Tail], Size) :- size(Tail, TailSize), Size is TailSize + 1.  
 
 % Removing consecutive duplicates - compress(List, Result)
-compress([], []):-!.
-compress([X], [X]):-!.
+compress([], []) :- !.
+compress([X], [X]) :- !.
 
 compress([X, X | Tail], Result) :- compress([X | Tail], Result).
 compress([X, Y | Tail], [X | TailComp]) :- X \= Y, compress([Y | Tail], TailComp).
 
 % Generating a list of all numbers within a range - range(Start, End, Result)
-range(X, X, [X]):-!.
+range(X, X, [X]) :- !.
 
 range(X, Y, [X | SubResult]) :- Y > X, Z is X + 1, range(Z, Y, SubResult).
 
 % Splitting a list - split(Original, NumElements, Left, Right)
-split(List, 0, [], List):-!.
+split(List, 0, [], List) :- !.
 
 split([Head | Tail], Num, [Head | SubResult], End) :- SubNum is Num - 1, split(Tail, SubNum, SubResult, End).
 
