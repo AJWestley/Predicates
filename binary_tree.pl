@@ -13,7 +13,7 @@ count_leaves(t(_, L, R), Result) :- count_leaves(L, LCount), count_leaves(R, RCo
 inorder(nil, []):-!.
 inorder(t(X, nil, nil), [X]):-!.
 
-inorder(t(X, L, R), Total) :- inorder(L, Left), inorder(R, Right), append(Left, [X], P), append(P, Right, Total).
+inorder(t(X, L, R), Total) :- inorder(L, Left), inorder(R, Right), append(Left, [X | Right], Total).
 
 % Preorder traversal
 preorder(nil, []):-!.
