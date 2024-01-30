@@ -254,3 +254,17 @@ The `pow` predicate can be used to calculate X^Y.
 ?- pow(2, 4, X).
 % X = 16.
 ```
+
+#### Co-Primes
+
+The `coprime` predicate can be used to find if two numbers are co-prime.
+
+`coprime` takes 2 arguments:
+- The first number
+- The second number
+
+##### Example: (`coprime`)
+```prolog
+?- coprime(8, 15).
+% true.
+```

@@ -16,3 +16,14 @@ gcd(X, Y, Result) :- Y > 0, Z is X mod Y, gcd(Y, Z, Result).
 pow(_, 0, 1) :- !.
 
 pow(X, Y, Result) :- Y > 0, Z is Y - 1, pow(X, Z, SubResult), Result is X * SubResult.
+
+% Co-Prime
+
+coprime(X, Y) :- gcd(X, Y, GCD), GCD is 1.
+
+% Euler Totient
+totient(2, 1) :- !.
+
+totient(X, Result) :- X > 2, coprime_count(X, X - 1, Result).
+
+% coprime_count(X, Y, Result) :- coprime 
