@@ -108,3 +108,18 @@ Lists with consecutive duplicates can be reduced with `compress`.
 ?- compress([1, 1, 1, 2, 2, 3, 3, 4, 3], X).
 % X = [1, 2, 3, 4, 3] .
 ```
+
+#### Generating a Sequential List from a Range
+
+A sequential list can be generated using `range`.
+
+`range` takes 3 arguments:
+- The start of the range
+- The end of the range
+- The output
+
+##### Example: (`range`)
+```
+?- range(1, 4, X).
+% X = [1, 2, 3, 4] .
+```
