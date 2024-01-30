@@ -1,12 +1,12 @@
 % Concatenating two lists
 concat([], L1, L1).
 
-concat([Item | L1], L2, [Item | L3]) :- conc(L1, L2, L3).
+concat([Item | L1], L2, [Item | L3]) :- concat(L1, L2, L3).
 
 % Adding an item
 prepend(Item, L, [Item | L]).
 
-append(Item, L, R) :- conc(L, [Item], R).
+append(Item, L, R) :- concat(L, [Item], R).
 
 % Deleting an item
 del(Item, [Item | Tail], Tail).
