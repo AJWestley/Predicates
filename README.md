@@ -8,22 +8,22 @@ A collection of useful predicates for prolog
 
 The list predicates can be loaded as follows:
 ```prolog
-[list_predicates].
+?- [list_predicates].
 ```
 
 #### Concatenating Lists
 
-Two lists can be combined using `conc`.
+Two lists can be combined using `concat`. (Duplicate of existing `conc` predicate)
 
-`conc` takes 3 arguments:
+`concat` takes 3 arguments:
 - The first list
 - The second list
 - The output
 
-##### Example: (`conc`)
+##### Example: (`concat`)
 ```prolog
-conc([1, 2, 3], [7, 8, 9], X).
-% X = [1, 2, 3, 7, 8, 9]
+?- concat([1, 2, 3], [7, 8, 9], X).
+% X = [1, 2, 3, 7, 8, 9].
 ```
 
 #### Adding Items to a List
@@ -37,13 +37,13 @@ Items can be added to the beginning of a list using `prepend` and to the end of 
 
 ##### Example: (`prepend`)
 ```prolog
-prepend(69, [4, 2, 0], X).
+?- prepend(69, [4, 2, 0], X).
 % X = [69, 4, 2, 0].
 ```
 
 ##### Example: (`append`)
 ```prolog
-append(69, [4, 2, 0], X).
+?- append(69, [4, 2, 0], X).
 % X = [4, 2, 0, 69].
 ```
 
@@ -58,10 +58,10 @@ Items can be deleted from a list using `del`.
 
 ##### Examples: (`del`)
 ```prolog
-del(2, [1, 2, 3], X).
+?- del(2, [1, 2, 3], X).
 % X = [1, 3]
 
-del(2, [2, 1, 2, 3, 2]).
+?- del(2, [2, 1, 2, 3, 2]).
 % X = [1, 2, 3, 2];
 % X = [2, 1, 3, 2];
 % X = [2, 1, 2, 3].
@@ -77,6 +77,34 @@ Using `in` you can check if an item is contained inside a list
 
 ##### Example: (`in`)
 ```prolog
-in(4, [1, 4, 9, 25]).
-% true
+?- in(4, [1, 4, 9, 16]).
+% true .
+```
+
+#### Finding the Length of a List
+
+The length of a list can be found with `size`. (Duplicate of the `length` predicate)
+
+`size` takes 2 arguments:
+- The list in question
+- The output
+
+##### Example: (`size`)
+```prolog
+?- size([1, 9, 423, 2], X).
+% X = 4.
+```
+
+#### Removing Consecutive Duplicates
+
+Lists with consecutive duplicates can be reduced with `compress`.
+
+`compress` takes 2 arguments:
+- The list to compress
+- The output
+
+##### Example: (`compress`)
+```
+?- compress([1, 1, 1, 2, 2, 3, 3, 4, 3], X).
+% X = [1, 2, 3, 4, 3] .
 ```
