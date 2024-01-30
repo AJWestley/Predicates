@@ -18,7 +18,7 @@ Two lists can be combined using `concat`. (Duplicate of existing `append` predic
 `concat` takes 3 arguments:
 - The first list
 - The second list
-- The output
+- Output
 
 ##### Example: (`concat`)
 ```prolog
@@ -33,16 +33,13 @@ Items can be added to the beginning of a list using `push_front` and to the end 
 `push_front` and `push_back` take 3 arguments:
 - The item to add
 - The list to be added to
-- The output
+- Output
 
-##### Example: (`push_front`)
+##### Example: (`push_front`, `push_back`)
 ```prolog
 ?- push_front(69, [4, 2, 0], X).
 % X = [69, 4, 2, 0].
-```
 
-##### Example: (`push_back`)
-```prolog
 ?- push_back(69, [4, 2, 0], X).
 % X = [4, 2, 0, 69].
 ```
@@ -54,7 +51,7 @@ Items can be deleted from a list using `del`.
 `del` takes 3 arguments:
 - The item to delete
 - The list for the item to be deleted from
-- The output
+- Output
 
 ##### Examples: (`del`)
 ```prolog
@@ -87,7 +84,7 @@ The length of a list can be found with `size`. (Duplicate of the `length` predic
 
 `size` takes 2 arguments:
 - The list in question
-- The output
+- Output
 
 ##### Example: (`size`)
 ```prolog
@@ -101,7 +98,7 @@ Lists with consecutive duplicates can be reduced with `compress`.
 
 `compress` takes 2 arguments:
 - The list to compress
-- The output
+- Output
 
 ##### Example: (`compress`)
 ```
@@ -116,7 +113,7 @@ A sequential list can be generated using `range`.
 `range` takes 3 arguments:
 - The start of the range
 - The end of the range
-- The output
+- Output
 
 ##### Example: (`range`)
 ```prolog
@@ -150,7 +147,7 @@ A the contents of a list can be shifted left or right using `shift`.
 - The number of places to shift the contents
     - Positive = shift left
     - Negative = shift right
-- The output
+- Output
 
 ##### Examples: (`shift`)
 ```prolog
@@ -185,10 +182,30 @@ The number of leaves in a binary tree can be counted with `count_leaves`.
 
 `count_leaves` takes 2 arguments:
 - The binary tree to count
-- The output
+- Output
 
 ##### Example: (`count_leaves`)
 ```prolog
 ?- count_leaves(t(a, t(b, t(s, nil, nil), t(t, nil, nil)), t(c, nil, nil)), X).
 % X = 3.
+```
+
+#### Traversing a Binary Tree
+
+A binary tree can be traversed with `inorder`, `preorder` or `postorder`.
+
+`inorder`, `preorder` and `postorder` all take 2 arguments:
+- The tree to traverse
+- Output
+
+##### Examples: (`inorder`, `preorder`, `postorder`)
+```prolog
+?- inorder(t(a, t(b, nil, nil), t(c, nil, nil)), S).
+% S = [b, a, c].
+
+?- preorder(t(a, t(b, nil, nil), t(c, nil, nil)), S).
+% S = [a, b, c].
+
+?- postorder(t(a, t(b, nil, nil), t(c, nil, nil)), S).
+% S = [b, c, a].
 ```
