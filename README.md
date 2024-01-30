@@ -4,7 +4,7 @@ A collection of useful predicates for prolog
 
 ## Implemented
 
-### Lists
+### Lists (`list.pl`)
 
 The list predicates can be loaded as follows:
 ```prolog
@@ -159,4 +159,22 @@ A the contents of a list can be shifted left or right using `shift`.
 
 ?- shift([1, 2, 3, 4], -1, X).
 % X = [4, 1, 2, 3].
+```
+
+### Binary Trees (`binary_tree.pl`)
+
+#### Verifying a Binary Tree
+
+The `is_binary_tree` predicate verifies if a given term is a binary tree or not.
+
+`is_binary_tree` takes 1 argument:
+- The term to verify
+
+##### Example: (`is_binary_tree`)
+```prolog
+?- is_binary_tree(t(a, t(b, nil, nil), t(c, nil, t(d, nil, nil)))).
+% true.
+
+?- is_binary_tree(t(a, t(b, nil, nil))).
+% false.
 ```
