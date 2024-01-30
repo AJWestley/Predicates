@@ -11,3 +11,8 @@ has_divisor(N, P) :- N > P + 1, has_divisor(N, P + 1).
 % Greatest common divisor
 gcd(X, 0, X) :- X > 0, !.
 gcd(X, Y, Result) :- Y > 0, Z is X mod Y, gcd(Y, Z, Result).
+
+% Power
+pow(_, 0, 1) :- !.
+
+pow(X, Y, Result) :- Y > 0, Z is Y - 1, pow(X, Z, SubResult), Result is X * SubResult.

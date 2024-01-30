@@ -239,3 +239,18 @@ The GCD of 2 numbers can be found with the `gcd` predicate.
 ?- gcd(42, 285, X).
 % X = 3.
 ```
+
+#### Exponents
+
+The `pow` predicate can be used to calculate X^Y.
+
+`pow` takes 3 arguments:
+- The base
+- The exponent
+- Output
+
+##### Example: (`pow`)
+```prolog
+?- pow(2, 4, X).
+% X = 16.
+```
