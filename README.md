@@ -178,3 +178,17 @@ The `is_binary_tree` predicate verifies if a given term is a binary tree or not.
 ?- is_binary_tree(t(a, t(b, nil, nil))).
 % false.
 ```
+
+#### Counting the Leaves in a Tree
+
+The number of leaves in a binary tree can be counted with `count_leaves`.
+
+`count_leaves` takes 2 arguments:
+- The binary tree to count
+- The output
+
+##### Example: (`count_leaves`)
+```prolog
+?- count_leaves(t(a, t(b, t(s, nil, nil), t(t, nil, nil)), t(c, nil, nil)), X).
+% X = 3.
+```
