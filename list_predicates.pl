@@ -1,12 +1,12 @@
 % Concatenating two lists - concat(L1, L2, Result)
-concat([], L1, L1).
+concat([], L1, L1):-!.
 
 concat([Item | L1], L2, [Item | L3]) :- concat(L1, L2, L3).
 
-% Adding an item - prepend(Item, List, Result)
-prepend(Item, L, [Item | L]).
+% Adding an item - push_front(Item, List, Result)
+push_front(Item, L, [Item | L]).
 
-append(Item, L, R) :- concat(L, [Item], R).
+push_back(Item, L, R) :- append(L, [Item], R).
 
 % Deleting an item  - del(Item, List, Result)
 del(Item, [Item | Tail], Tail).
@@ -39,3 +39,10 @@ range(X, Y, [X | SubResult]) :- Y > X, Z is X + 1, range(Z, Y, SubResult).
 split(List, 0, [], List):-!.
 
 split([Head | Tail], Num, [Head | SubResult], End) :- SubNum is Num - 1, split(Tail, SubNum, SubResult, End).
+
+% Cyclically shifting the elements of a list left or right
+shift(List, 0, List).
+
+shift(List, N, Result) :- N > 0, !, length(List, Len), P is N mod Len, shift_left(List, P, Result).
+shift(List, N, Result) :- N < 0, length(List, Len), P is (Len + (N mod Len)) mod Len, shift_left(List, P, Result).
+shift_left(List, N, Result) :- N > 0, split(List, N, Left, Right), append(Right, Left, Result). 

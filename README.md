@@ -13,7 +13,7 @@ The list predicates can be loaded as follows:
 
 #### Concatenating Lists
 
-Two lists can be combined using `concat`. (Duplicate of existing `conc` predicate)
+Two lists can be combined using `concat`. (Duplicate of existing `append` predicate)
 
 `concat` takes 3 arguments:
 - The first list
@@ -28,22 +28,22 @@ Two lists can be combined using `concat`. (Duplicate of existing `conc` predicat
 
 #### Adding Items to a List
 
-Items can be added to the beginning of a list using `prepend` and to the end of a list using `append`.
+Items can be added to the beginning of a list using `push_front` and to the end of a list using `push_back`.
 
-`append` takes 3 arguments:
+`push_front` and `push_back` take 3 arguments:
 - The item to add
 - The list to be added to
 - The output
 
-##### Example: (`prepend`)
+##### Example: (`push_front`)
 ```prolog
-?- prepend(69, [4, 2, 0], X).
+?- push_front(69, [4, 2, 0], X).
 % X = [69, 4, 2, 0].
 ```
 
-##### Example: (`append`)
+##### Example: (`push_back`)
 ```prolog
-?- append(69, [4, 2, 0], X).
+?- push_back(69, [4, 2, 0], X).
 % X = [4, 2, 0, 69].
 ```
 
@@ -139,4 +139,24 @@ A list can be split into two sublists using `split`.
 ?- split([1, 2, 3, 4, 5], 2, L, R).
 % L = [1, 2],
 % R = [3, 4, 5].
+```
+
+#### Shifting a List
+
+A the contents of a list can be shifted left or right using `shift`.
+
+`shift` takes 2 arguments:
+- The original list
+- The number of places to shift the contents
+    - Positive = shift left
+    - Negative = shift right
+- The output
+
+##### Examples: (`shift`)
+```prolog
+?- shift([1, 2, 3, 4], 1, X).
+% X = [2, 3, 4, 1].
+
+?- shift([1, 2, 3, 4], -1, X).
+% X = [4, 1, 2, 3].
 ```
