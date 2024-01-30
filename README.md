@@ -209,3 +209,18 @@ A binary tree can be traversed with `inorder`, `preorder` or `postorder`.
 ?- postorder(t(a, t(b, nil, nil), t(c, nil, nil)), S).
 % S = [b, c, a].
 ```
+
+### Maths (`maths.pl`)
+
+#### Checking That a Number is Prime
+
+The `is_prime` predicate can determine whether or not a number is prime.
+
+`is_prime` takes 1 argument:
+- The number to check
+
+##### Example: (`is_prime`)
+```prolog
+?- is_prime(17)
+% true.
+```
