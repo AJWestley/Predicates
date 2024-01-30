@@ -119,7 +119,24 @@ A sequential list can be generated using `range`.
 - The output
 
 ##### Example: (`range`)
-```
+```prolog
 ?- range(1, 4, X).
 % X = [1, 2, 3, 4].
+```
+
+#### Splitting a List
+
+A list can be split into two sublists using `split`.
+
+`split` takes 4 arguments:
+- The original list
+- The number of elements from the beginning to remove
+- Left sublist output
+- Right sublist output
+
+##### Example: (`split`)
+```prolog
+?- split([1, 2, 3, 4, 5], 2, L, R).
+% L = [1, 2],
+% R = [3, 4, 5].
 ```
