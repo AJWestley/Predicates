@@ -78,7 +78,7 @@ Using `in` you can check if an item is contained inside a list
 ##### Example: (`in`)
 ```prolog
 ?- in(4, [1, 4, 9, 16]).
-% true .
+% true.
 ```
 
 #### Finding the Length of a List
@@ -121,5 +121,5 @@ A sequential list can be generated using `range`.
 ##### Example: (`range`)
 ```
 ?- range(1, 4, X).
-% X = [1, 2, 3, 4] .
+% X = [1, 2, 3, 4].
 ```

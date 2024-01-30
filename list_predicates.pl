@@ -14,7 +14,7 @@ del(Item, [Item | Tail], Tail).
 del(Item, [Head | Tail], [Head | Result]) :- del(Item, Tail, Result).
 
 % Checking for item inside list
-in(Item, [Item | _]).
+in(Item, [Item | _]):-!.
 
 in(Item, [_ | Tail]) :- in(Item, Tail).
 
@@ -24,13 +24,13 @@ size([], 0).
 size([_ | Tail], Size) :- size(Tail, TailSize), Size is TailSize + 1.  
 
 % Removing consecutive duplicates
-compress([], []).
-compress([X], [X]).
+compress([], []):-!.
+compress([X], [X]):-!.
 
 compress([X, X | Tail], Result) :- compress([X | Tail], Result).
 compress([X, Y | Tail], [X | TailComp]) :- X \= Y, compress([Y | Tail], TailComp).
 
 % Generating a list of all numbers within a range
-range(X, X, [X]).
+range(X, X, [X]):-!.
 
 range(X, Y, [X | SubResult]) :- Y > X, Z is X + 1, range(Z, Y, SubResult).
