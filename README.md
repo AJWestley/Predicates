@@ -92,6 +92,20 @@ The length of a list can be found with `size`. (Duplicate of the `length` predic
 % X = 4.
 ```
 
+#### Last Item of a List
+
+The last item of a list can be found with `last_item`.
+
+`last_item` takes 2 arguments:
+- The list to evaluate
+- Output
+
+##### Example: (`last_item`)
+```prolog
+?- last_item([a, c, r, g, q], X). 
+% X = q.
+```
+
 #### Removing Consecutive Duplicates
 
 Lists with consecutive duplicates can be reduced with `compress`.

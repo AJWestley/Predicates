@@ -58,3 +58,8 @@ union(X, [], X) :- !.
 
 union(List, [Head | Tail], Result) :- union(List, Tail, Result), member(Head, Result), !.
 union(List, [Head | Tail], [Head | TailResult]) :- union(List, Tail, TailResult).
+
+% Last element of a set
+last_item([X], X) :- !.
+
+last_item([_ | Tail], X) :- last_item(Tail, X).
