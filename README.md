@@ -158,6 +158,24 @@ A the contents of a list can be shifted left or right using `shift`.
 % X = [4, 1, 2, 3].
 ```
 
+#### Combining Sets
+
+The union and intersection of two sets can be found using `union` and `intersection` respectively.
+
+`union` and `intersection` take 3 arguments:
+- The first set
+- The second set
+- Output
+
+##### Example: (`union`, `intersection`)
+```prolog
+?- union([a, c, e], [a, b, c], X).
+% X = [b, a, c, e].
+
+?- intersection([a, c, e], [a, b, c], X).
+% X = [a, c].
+```
+
 ### Binary Trees (`binary_tree.pl`)
 
 #### Verifying a Binary Tree

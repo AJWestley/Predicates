@@ -46,3 +46,15 @@ shift(List, 0, List).
 shift(List, N, Result) :- N > 0, !, length(List, Len), P is N mod Len, shift_left(List, P, Result).
 shift(List, N, Result) :- N < 0, length(List, Len), P is (Len + (N mod Len)) mod Len, shift_left(List, P, Result).
 shift_left(List, N, Result) :- N > 0, split(List, N, Left, Right), append(Right, Left, Result). 
+
+% Set intersection
+intersection(_, [], []) :- !.
+
+intersection(List, [Head | Tail], [Head | UTail]) :- member(Head, List), intersection(List, Tail, UTail), not(member(Head, UTail)), !.
+intersection(List, [_ | Tail], Result) :- intersection(List, Tail, Result).
+
+% Set union
+union(X, [], X) :- !.
+
+union(List, [Head | Tail], Result) :- union(List, Tail, Result), member(Head, Result), !.
+union(List, [Head | Tail], [Head | TailResult]) :- union(List, Tail, TailResult).
