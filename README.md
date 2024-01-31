@@ -268,3 +268,33 @@ The `coprime` predicate can be used to find if two numbers are co-prime.
 ?- coprime(8, 15).
 % true.
 ```
+
+#### Integer Logarithm
+
+The floor value of a logarithm can be determined with the `log` predicate.
+
+`log` takes 3 arguments:
+- The base
+- The argument of the log
+- Output
+
+##### Example: (`log`)
+```prolog
+?- log(2, 16, X).
+% X = 4.
+```
+
+#### Dot Product
+
+The dot product of two vectors can be calulated with the `dot` predicate.
+
+`dot` takes 3 arguments:
+- The first vector
+- The second vector
+- Output
+
+##### Example: (`dot`)
+```prolog
+?- dot([3, 2, 0], [5, 2, 3], X).
+% X = 19.
+```
