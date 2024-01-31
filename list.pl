@@ -63,3 +63,19 @@ union(List, [Head | Tail], [Head | TailResult]) :- union(List, Tail, TailResult)
 last_item([X], X) :- !.
 
 last_item([_ | Tail], X) :- last_item(Tail, X).
+
+% Check a list is sorted
+is_sorted([]) :- !.
+is_sorted([_]) :- !.
+
+is_sorted([X1 | [X2 | Right]]) :- X1 = X2, is_sorted([X2 | Right]), !.
+is_sorted([X1 | [X2 | Right]]) :- X1 > X2, is_sorted_desc([X2 | Right]), !.
+is_sorted([X1 | [X2 | Right]]) :- X1 < X2, is_sorted_asc([X2 | Right]), !.
+
+is_sorted_desc([]) :- !.
+is_sorted_desc([_]) :- !.
+is_sorted_desc([X1 | [X2 | Right]]) :- X1 >= X2, is_sorted_desc([X2 | Right]), !.
+
+is_sorted_asc([]) :- !.
+is_sorted_asc([_]) :- !.
+is_sorted_asc([X1 | [X2 | Right]]) :- X1 =< X2, is_sorted_asc([X2 | Right]), !.

@@ -172,6 +172,19 @@ A the contents of a list can be shifted left or right using `shift`.
 % X = [4, 1, 2, 3].
 ```
 
+#### Check a List is Sorted
+
+The `is_sorted` predicate checks if a list is sorted.
+
+`is_sorted` takes 1 argument:
+- The list in question
+
+##### Example: (`is_sorted`)
+```prolog
+?- is_sorted([4, 4, 3]).
+% true.
+```
+
 #### Combining Sets
 
 The union and intersection of two sets can be found using `union` and `intersection` respectively.
