@@ -13,6 +13,12 @@ del(Item, [Item | Tail], Tail).
 
 del(Item, [Head | Tail], [Head | Result]) :- del(Item, Tail, Result).
 
+% Remove element from position
+remove(Index, List, Result) :- Index >= 0, length(List, Length), Length > Index, remove_aux(Index, [], List, Result).
+
+remove_aux(0, Left, [_ | Tail], Result) :- append(Left, Tail, Result), !.
+remove_aux(Index, Left, [Head | Right], Result) :- Next is Index - 1, append(Left, [Head], L), remove_aux(Next, L, Right, Result).
+
 % Checking for item inside list - in(Item, List)
 in(Item, [Item | _]) :- !.
 
